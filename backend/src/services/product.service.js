@@ -51,8 +51,21 @@ const postNewProduct = async (product) => {
   return { status: 'CREATED', data: insertProductId };
 };
 
+const updateProductDesc = async (id, productUpdate) => {
+  const { error } = schemaProduct.validate(productUpdate);
+  if (error) return { status: 'INVALID_VALUE', data: { message: error.message } };
+
+  const validadeProduct = await productModel.findIdProducts(id);
+  if (!validadeProduct) return { status: 'NOT_FOUND', data: { message: 'Product not found' } };
+
+  await productModel.productUpdate(id, productUpdate);
+  const productUpdated = await productModel.findIdProducts(id);
+  return { status: 'SUCCESSFUL', data: productUpdated };
+};
+
 module.exports = { 
   findAll, 
   findById, 
   postNewProduct,
+  updateProductDesc,
 };

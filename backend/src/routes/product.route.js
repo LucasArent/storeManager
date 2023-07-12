@@ -5,5 +5,6 @@ const { productValidation } = require('../middlewares/add.validation'); // impor
 route.get('/:id', productController.productById);
 route.get('/', productController.allProducts);
 route.post('/', productValidation, productController.createProduct);
+route.put('/:id', productValidation, productController.updateProduct);
 
 module.exports = route;
