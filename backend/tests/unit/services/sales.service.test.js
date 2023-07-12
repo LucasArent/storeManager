@@ -1,12 +1,12 @@
-const {  expect } = require('chai');
+const { expect } = require('chai');
 const sinon = require('sinon');
 const { salesModel } = require('../../../src/models');
 const {
     saleAllProducstDB,
     saleAllProductsModel,
     saleProductIdFromDB,
-    saleProductIdFromModel,
-}  = require('../mocks/sale.product.mock');
+    // saleProductIdFromModel,
+} = require('../mocks/sale.product.mock');
 const salesService = require('../../../src/services/sales.service');
 
 describe('teste sale dos service', function () { 
@@ -26,9 +26,8 @@ describe('teste sale dos service', function () {
 
         expect(serviceResponse.status).to.be.equal('SUCCESSFUL');
         expect(serviceResponse.data).to.be.deep.equal(saleProductIdFromDB);
+        });
+    afterEach(function () {
+        sinon.restore();
     });
-
-    });
-afterEach(function () {
-    sinon.restore();
 });

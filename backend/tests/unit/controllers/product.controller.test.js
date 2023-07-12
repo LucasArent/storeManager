@@ -30,7 +30,6 @@ describe('testes do Controller', function () {
 
     // it('recebe status 404 quando acha id', async function () {
 
-
     it('consegue recuperar um produto pelo id', async function () {
         sinon.stub(productService, 'findById').resolves(allproductsFromServiceSuccess);
 
