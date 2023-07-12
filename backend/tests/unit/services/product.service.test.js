@@ -13,14 +13,14 @@ const {
 } = require('../mocks/product.model.mock');
 
 describe('teste dos service', function () {
-  it('acha todos os produtos com sucesso', async function () {
-    sinon.stub(productModel, 'findProducts').resolves(allProductsDB);
+it('acha todos os produtos com sucesso', async function () {
+  sinon.stub(productModel, 'findProducts').resolves(allProductsDB);
 
-    const serviceResponse = await productService.findAll();
+  const serviceResponse = await productService.findAll();
 
-    expect(serviceResponse.status).to.equal('SUCCESSFUL');
-    expect(serviceResponse.data).to.have.deep.members(allProductsModel);
-  });
+  expect(serviceResponse.status).to.equal('SUCCESSFUL');
+  expect(serviceResponse.data).to.deep.members(allProductsModel); // to.deep.equal
+});
 
   it('retorna SUCCESSFUL quando acha o produto pelo id', async function () {
     sinon.stub(productModel, 'findIdProducts').resolves(productByIDDB);
@@ -34,11 +34,11 @@ describe('teste dos service', function () {
 
   it('retorna NOT_FOUND quando não acha todos os produtos', async function () {
     sinon.stub(productModel, 'findProducts').resolves([]);
-
+  
     const serviceResponse = await productService.findAll();
-
+  
     expect(serviceResponse.status).to.equal('NOT_FOUND');
-    expect(serviceResponse.data).to.be.deep.equal({ message: 'There are no products' });
+    expect(serviceResponse.data).to.deep.equal({ message: 'There are no products' });
   });
 
   it('retorna NOT_FOUND quando não acha o produto por id', async function () {

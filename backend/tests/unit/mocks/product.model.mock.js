@@ -23,6 +23,21 @@ const productByIDDB = {
 const productIdFromDB = { insertId: 99 };
 const productIdFromModel = 99;
 
+const allproductsFromServiceSuccess = {
+  status: 'SUCCESSFUL',
+  data: allProductsModel,
+};
+
+const productByIdFromServiceSuccess = {
+  status: 'SUCCESSFUL',
+  data: productByIDModel,
+};
+
+const productByIdFromServiceNotFound = {
+  status: 'NOT_FOUND',
+  data: { message: 'message' },
+};
+
 module.exports = {
   allProductsDB,
   allProductsModel,
@@ -30,4 +45,7 @@ module.exports = {
   productByIDDB,
   productIdFromDB,
   productIdFromModel,
+  allproductsFromServiceSuccess,
+  productByIdFromServiceSuccess,
+  productByIdFromServiceNotFound,
 };

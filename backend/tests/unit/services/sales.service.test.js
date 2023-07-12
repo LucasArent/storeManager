@@ -11,7 +11,7 @@
 
 // describe('teste dos service', function () {
 //     it('acha todos os produtos das vendas', async function () {
-//         sinon.stub(productModel, 'allFindSales').resolves(allProductsDB);
+//         sinon.stub(productModel, 'findProducts').resolves(allProductsDB);
 
 //         const serviceResponse = await productService.getAllProductSales();
 
@@ -20,7 +20,7 @@
 //     });
 
 //     it('retorna SUCCESSFUL quando acha o produto pelo id', async function () {
-//         sinon.stub(productModel, 'byIdFindSale').resolves(productByIDDB);
+//         sinon.stub(productModel, 'findIdProducts').resolves(productByIDDB);
 
 //         const inputData = 2;
 //         const serviceResponse = await productService.getProductSalesById(inputData);
@@ -30,7 +30,7 @@
 //     });
 
 //     it('retorna NOT_FOUND quando não acha o produto pelo id', async function () {
-//         sinon.stub(productModel, 'byIdFindSale').resolves([]);
+//         sinon.stub(productModel, 'findIdProducts').resolves([]);
 
 //         const inputData = 9;
 //         const serviceResponse = await productService.getProductSalesById(inputData);

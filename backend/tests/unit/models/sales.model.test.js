@@ -31,7 +31,7 @@ describe('testa o model de vendas', function () {
         expect(sale).to.have.deep.equal(saleProductIdFromModel);
     });
 
-    // it('testa se registra uma nova vend', async function () {
+    // it('testa se registra uma nova venda', async function () {
     //     sinon.stub(connection, 'execute')
     //     .onFirstCall()
     //     .resolves([saleProductsIdFromDB])
@@ -47,6 +47,7 @@ describe('testa o model de vendas', function () {
     //     expect(registeredSale).to.be.an('object');
     //     expect(registeredSale).to.be.deep.equal(saleProductsIdFromModel);
     // });
+    
     afterEach(function () {
         sinon.restore();
     });

@@ -3,16 +3,13 @@ const { schemaProduct } = require('./validations/schemas'); // import pra 6
 
 const findAll = async () => {
   const products = await productModel.findProducts();
-  if (products.length < 1) {
-    return {
-      status: 'NOT_FOUND',
-      data: {
-        message: 'There are no products',
-      },
+
+  return {
+    status: products.length > 0 ? 'SUCCESSFUL' : 'NOT_FOUND',
+    data:
+     products.length > 0 ? products : { message: 'There are no products'}, 
     };
-  }
-  return { status: 'SUCCESSFUL', data: products };
-};
+  };
 
 const findById = async (id) => {
   const product = await productModel.findIdProducts(id);
