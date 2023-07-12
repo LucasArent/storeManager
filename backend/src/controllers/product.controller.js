@@ -14,6 +14,11 @@ const productById = async (req, res) => {
 
 const createProduct = async (req, res) => {
   const productAdd = req.body;
+  if (!productAdd.name) {
+    return res.status(400).json({
+      message: '"name" is required',
+    }); // { message: 'Product is required' } test pra quebrar
+  }
   console.log('ProductAdd', typeof productAdd);
   const { status, data } = await productService.postNewProduct(productAdd);
   return res.status(mapStatusHTTP(status)).json(data);

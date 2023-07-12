@@ -27,6 +27,14 @@ const findById = async (id) => {
 };
 
 const postNewProduct = async (product) => {
+  if (product.name.length < 5) {
+    return {
+      status: 'INVALID_VALUE',
+      data: { 
+        message: '"name" length must be at least 5 characters long', 
+      },
+    };
+  }
   const insertProducts = await productModel.insertNewProduct(product);
   const insertProductId = await productModel.findIdProducts(insertProducts);
 

@@ -25,7 +25,7 @@ describe('testes do model', function () {
   it('testa se consegue encontrar os produtos pelo seus ids', async function () {
     sinon.stub(connection, 'execute').resolves([[productByIDDB]]);
   
-    const inputData = 3;
+    const inputData = 99;
     const product = await productModel.findIdProducts(inputData);
   
     expect(product).to.be.an('object');
