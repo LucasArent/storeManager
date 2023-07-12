@@ -12,17 +12,26 @@ const saleAllProductsModel = [
   { date, saleId: 2, productId: 3, quantity: 15 },
 ];
 
-const saleProductIdFromDB =
-  { date, productId: 3, quantity: 15 }
-;
+const saleProductIdFromDB = { date, productId: 3, quantity: 15 };
 
 const saleProductIdFromModel = [
   { date, productId: 3, quantity: 15 },
 ];
+
+const saleProductsIdFromDB = { insertId: 8 };
+const saleProductsIdFromModel = {
+  id: 8,
+  itemSold: [
+    { productId: 1, quantity: 1 },
+    { productId: 2, quantity: 5 },
+  ],
+};
 
 module.exports = {
   saleAllProducstDB,
   saleAllProductsModel,
   saleProductIdFromDB,
   saleProductIdFromModel,
+  saleProductsIdFromDB,
+  saleProductsIdFromModel,
 };

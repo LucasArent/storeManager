@@ -7,6 +7,8 @@ const {
     saleAllProductsModel, 
     saleProductIdFromDB, 
     saleProductIdFromModel,
+    // saleProductsIdFromDB,
+    // saleProductsIdFromModel,
 } = require('../mocks/sale.product.mock');
 
 describe('testa o model de vendas', function () {
@@ -29,6 +31,22 @@ describe('testa o model de vendas', function () {
         expect(sale).to.have.deep.equal(saleProductIdFromModel);
     });
 
+    // it('testa se registra uma nova vend', async function () {
+    //     sinon.stub(connection, 'execute')
+    //     .onFirstCall()
+    //     .resolves([saleProductsIdFromDB])
+    //     .onSecondCall()
+    //     .resolves(null);
+
+    //     const inputData = [
+    //         { productId: 1, quantity: 1 },
+    //         { productId: 2, quantity: 5 },
+    //     ];
+    //     const registeredSale = await salesModel.registeredSale(inputData);
+
+    //     expect(registeredSale).to.be.an('object');
+    //     expect(registeredSale).to.be.deep.equal(saleProductsIdFromModel);
+    // });
     afterEach(function () {
         sinon.restore();
     });
