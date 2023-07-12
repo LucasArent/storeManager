@@ -11,18 +11,23 @@ const allProductsModel = [
 ];
 
 const productByIDModel = {
-  id: 3,
+  id: 99,
   name: 'Escudo do CapitÃ£o AmÃ©rica',
 };
 
 const productByIDDB = {
-  id: 3,
+  id: 99,
   name: 'Escudo do CapitÃ£o AmÃ©rica',
 };
+
+const productIdFromDB = { insertId: 99 };
+const productIdFromModel = 99;
 
 module.exports = {
   allProductsDB,
   allProductsModel,
   productByIDModel,
   productByIDDB,
+  productIdFromDB,
+  productIdFromModel,
 };

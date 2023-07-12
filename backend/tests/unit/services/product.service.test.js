@@ -3,7 +3,12 @@ const sinon = require('sinon');
 const { productModel } = require('../../../src/models');
 const { productService } = require('../../../src/services');
 
-const { allProductsDB, allProductsModel, productByIDDB, productByIDModel } = require('../mocks/product.model.mock');
+const { 
+  allProductsDB, 
+  allProductsModel, 
+  productByIDDB, 
+  productByIDModel,
+} = require('../mocks/product.model.mock');
 
 describe('teste dos service', function () {
   it('acha todos os produtos com sucesso', async function () {
