@@ -1,4 +1,5 @@
-const { salesModel } = require('../models');
+const { salesModel, productModel } = require('../models');
+const { saleSchemaProducts } = require('./validations/schemas');
 
 const getAllProductSales = async () => {
   const sales = await salesModel.allFindSales();
@@ -15,6 +16,22 @@ const getbyIdProductSale = async (saleID) => {
 };
 
 const createProductSale = async (cadasterSale) => {
+  const { error } = saleSchemaProducts.validate(cadasterSale);
+  if (error) {
+    return {
+      status: 'INVALID_VALUE',
+      data: { message: '"quantity" must be greater than or equal to 1' }, 
+    };
+  }
+
+  const productsValidation = cadasterSale.map(({ productId }) => 
+    productModel.findIdProducts(productId));
+    const value = await Promise.all(productsValidation);
+    if (value.includes(undefined)) {
+      return {
+      status: 'NOT_FOUND',
+      data: { message: 'Product not found' } };
+    }
   const addNewSale = await salesModel.createSale(cadasterSale);
   return { status: 'CREATED', data: addNewSale };
 };

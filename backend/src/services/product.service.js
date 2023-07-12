@@ -1,4 +1,5 @@
 const { productModel } = require('../models');
+const { schemaProduct } = require('./validations/schemas'); // import pra 6
 
 const findAll = async () => {
   const products = await productModel.findProducts();
@@ -27,14 +28,23 @@ const findById = async (id) => {
 };
 
 const postNewProduct = async (product) => {
-  if (product.name.length < 5) {
-    return {
-      status: 'INVALID_VALUE',
-      data: { 
-        message: '"name" length must be at least 5 characters long', 
-      },
-    };
+  const { error } = schemaProduct.validate(product);
+  if (error) {
+    return { status: 'INVALID_VALUE', 
+    data: {
+      message: error.message,
+    } };
   }
+
+  // if (product.name.length < 5) {
+  //   return {
+  //     status: 'INVALID_VALUE',
+  //     data: { 
+  //       message: '"name" length must be at least 5 characters long', 
+  //     },
+  //   };
+  // }
+
   const insertProducts = await productModel.insertNewProduct(product);
   const insertProductId = await productModel.findIdProducts(insertProducts);
 
