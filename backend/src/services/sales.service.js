@@ -14,4 +14,9 @@ const getbyIdProductSale = async (saleID) => {
   return { status: 'SUCCESSFUL', data: sale };
 };
 
-module.exports = { getAllProductSales, getbyIdProductSale };
+const createProductSale = async (cadasterSale) => {
+  const addNewSale = await salesModel.createSale(cadasterSale);
+  return { status: 'CREATED', data: addNewSale };
+};
+
+module.exports = { getAllProductSales, getbyIdProductSale, createProductSale };

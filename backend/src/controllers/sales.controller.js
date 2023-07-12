@@ -11,5 +11,11 @@ const allProductSales = async (_req, res) => {
     const { status, data } = await salesService.getbyIdProductSale(id);
     return res.status(mapStatusHTTP(status)).json(data);
   };
-  
-  module.exports = { allProductSales, byIdProductSale };
+
+  const createProductSale = async (req, res) => {
+    const cadasterSale = req.body;
+    const { status, data } = await salesService.createProductSale(cadasterSale);
+    return res.status(mapStatusHTTP(status)).json(data);
+  };
+
+  module.exports = { allProductSales, byIdProductSale, createProductSale };
