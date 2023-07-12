@@ -7,7 +7,7 @@ const findAll = async () => {
   return {
     status: products.length > 0 ? 'SUCCESSFUL' : 'NOT_FOUND',
     data:
-     products.length > 0 ? products : { message: 'There are no products'}, 
+     products.length > 0 ? products : { message: 'There are no products' }, 
     };
   };
 

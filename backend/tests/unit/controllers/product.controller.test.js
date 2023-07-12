@@ -32,4 +32,3 @@ describe('testes do Controller', function () {
         sinon.restore();
     });
 });
-
