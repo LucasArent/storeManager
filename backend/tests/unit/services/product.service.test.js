@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
-//const joi = require('joi');
+// const joi = require('joi');
 const { productModel } = require('../../../src/models');
 const { productService } = require('../../../src/services');
 
@@ -51,7 +51,7 @@ describe('teste dos service', function () {
     expect(serviceResponse.data).to.be.deep.equal({ message: 'Product not found' });
   });
 
-  it('testa o minimo do nome do produto', async function () { //test joi
+  it('testa o minimo do nome do produto', async function () { // test joi
     const inputData = {
       name: 'sla',
     };
