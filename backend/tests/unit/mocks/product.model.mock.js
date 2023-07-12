@@ -1,23 +1,23 @@
 const allProductsDB = [
   { id: 1, name: 'Martelo de Thor' },
   { id: 2, name: 'Traje de encolhimento' },
-  { id: 3, name: 'Escudo do CapitÃ£o AmÃ©rica' },
+  { id: 3, name: 'Escudo do Capitão América' },
 ];
 
 const allProductsModel = [
   { id: 1, name: 'Martelo de Thor' },
   { id: 2, name: 'Traje de encolhimento' },
-  { id: 3, name: 'Escudo do CapitÃ£o AmÃ©rica' },
+  { id: 3, name: 'Escudo do Capitão América' },
 ];
 
 const productByIDModel = {
   id: 99,
-  name: 'Escudo do CapitÃ£o AmÃ©rica',
+  name: 'Escudo do Capitão América',
 };
 
 const productByIDDB = {
   id: 99,
-  name: 'Escudo do CapitÃ£o AmÃ©rica',
+  name: 'Escudo do Capitão América',
 };
 
 const productIdFromDB = { insertId: 99 };

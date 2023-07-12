@@ -28,6 +28,25 @@ describe('testes do Controller', function () {
         expect(res.json).to.have.been.calledWith(allProductsModel);
     });
 
+    // it('recebe status 404 quando acha id', async function () {
+
+
+    it('consegue recuperar um produto pelo id', async function () {
+        sinon.stub(productService, 'findById').resolves(allproductsFromServiceSuccess);
+
+        const req = {
+            params: { id: 99 },
+        };
+        const res = {
+            status: sinon.stub().returnsThis(),
+            json: sinon.stub(),
+        };
+
+        await productController.productById(req, res);
+        expect(res.status).to.have.been.calledWith(200);
+        expect(res.json).to.have.been.calledWith(allProductsModel);
+    });
+
     afterEach(function () {
         sinon.restore();
     });

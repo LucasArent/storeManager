@@ -7,8 +7,8 @@ const {
     saleAllProductsModel, 
     saleProductIdFromDB, 
     saleProductIdFromModel,
-    // saleProductsIdFromDB,
-    // saleProductsIdFromModel,
+    saleProductsIdFromDB,
+    saleProductsIdFromModel,
 } = require('../mocks/sale.product.mock');
 
 describe('testa o model de vendas', function () {
